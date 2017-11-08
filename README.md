@@ -17,7 +17,7 @@ During this demo, I needed:
 On cluster2 is running the `demo` deployment. This runs 2 replicas of a dump "demo" 
 container:
 
-```
+```golang
 package main
 
 import (
