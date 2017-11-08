@@ -41,13 +41,13 @@ func main() {
 }
 ```
 
-On cluster2, we add an HPA that will scale the demo's pods when it's CPU consumption rises above 50%.
+On cluster2, we add an HPA that will scale the demo's pods when their CPU consumptions rise above 50%.
 For the HPA to work, the heapster addon must be running.
 
 Once cluster2's setup is done and demo's deployment is up and running, We execute the `vegeta` `Job`.
-This job will running vegeta containers. Those containers will send some HTTP workload to the 
+This job executes vegeta containers. Those containers will send some HTTP workload to the 
 demo deployment throught the nginx load-balancer. This is supposed to trigger the HPA mechanisms
-and a scaling of the demo pods.
+and the scaling of the demo pods.
 
 The k8s resources in the repository can be scheduled on a single k8s cluster. The frontal
 nginx loadbalancer is not required.
