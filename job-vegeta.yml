@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: vegeta
+spec:
+  completions: 300
+  parallelism: 40
+  template:
+    metadata:
+      name: vegeta
+    spec:
+      containers:
+      - name: vegeta
+        image: notuscloud/docker-vegeta
+        command: ["/bin/sh"]
+        args: ["-c", 'echo "GET ${TARGET}/" | vegeta attack -duration=120s | tee results.bin | vegeta report']
+        env: 
+        - name: TARGET
+          value: http://demo
+      restartPolicy: Never
+

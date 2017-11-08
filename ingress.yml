@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: test
+spec:
+  rules:
+  - host: your.demo.fqdn
+    http:
+      paths:
+      - backend:
+          serviceName: demo
+          servicePort: 8080
